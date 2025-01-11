@@ -1,13 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Sharp - Home</title>
+    <link rel="stylesheet" href="src/pages/HomePage/Home.css">
+</head>
+<body>
+    <div class="top-bar">
+        🌟 Stay Safe Online!
+    </div>
+
+    <canvas id="backgroundCanvas"></canvas>
+
+    <div class="container">
+        <img src="/src/assets/Women_Empowerment.jpg" alt="Empowerment Image" class="illustration">
+        <h1>Stay Sharp</h1>
+        <p>Empowering women to navigate the internet safely and confidently.</p>
+
+        <div class="buttons-container">
+            <button class="button" onclick="window.location.href='loginPage.html'">
+                <img src="/src/assets/female_profile.gif" alt="Login Icon"> Login
+            </button>
+            <button class="button" onclick="window.location.href='Instruction.html'">
+                <img src="/src/assets/information.gif" alt="Instructions Icon"> Instructions
+            </button>
+            <button class="button" onclick="window.location.href='startGame.html'">
+                <img src="/src/assets/start.gif" alt="Start Game Icon"> Start Game
+            </button>
+            <button class="button" onclick="window.location.href='feedbackPage.html'">
+                <img src="/src/assets/comments.gif" alt="Feedback Icon"> Feedback (Preview)
+            </button>
+            <button class="button" onclick="exitGame()">
+                <img src="/src/assets/exit.gif" alt="Exit Icon"> Exit
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Stay Sharp. <a href="privacy.html" style="color: #d14784; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #d14784; text-decoration: none;">Terms of Use</a>
+    </footer>
+
+    <img src="/src/assets/question.png" alt="Help Icon" class="help-icon" onclick="showHelpModal()">
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Need Help?</h2>
+            <p>Contact us for assistance:</p>
+            <ul>
+                <li><a href="https://www.isoc.org.il/" target="_blank">Visit ISOC-IL</a></li>
+                <li>Hotline: 105</li>
+            </ul>
+        </div>
+    </div>
+    <script src="src/pages/HomePage/HomePage.jsx"></script>
+</body>
 </html>

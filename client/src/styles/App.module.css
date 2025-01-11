@@ -1,49 +1,57 @@
-/* App.module.css */
 .app {
-  text-align: center;
-}
-
-.appHeader {
-  background-color: #53474F;
-  padding: 5px 30px 5px 30px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.appLogo {
-  height: 100px;
-}
-
-.appNav {
-  display: flex;
-  gap: 20px;
-}
-
-.appLink {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2em;
-}
-
-.appLink:hover {
-  text-decoration: underline;
-}
-
-.main {
-  padding: 20px;
-  background-color: #FFDCE8;
-  height: 100vh;
-}
-
-.footer {
-  padding: 10px;
-  background-color: #53474F;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-}
+    text-align: center;
+  }
   
+  .appHeader {
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(10px); 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    z-index: 1000; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .appLogo {
+    height: 100px;
+  }
+  
+  .appNav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .appLink {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.2em;
+  }
+  
+  .appLink:hover {
+    text-decoration: underline;
+  }
+  
+  .main {
+    padding: 20px;
+    background-image: url('../assets/background.png');
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    background-position: center;
+    padding-top: 80px;
+  }
+  
+  .footer {
+    padding: 10px;
+    background-color: #243888;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    z-index: 3;
+  }

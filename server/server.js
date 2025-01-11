@@ -1,29 +1,27 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import cors from 'cors';
-import dotenv from 'dotenv';
-import rubberDuckRoutes from './routes/rubberDucks.js'; // Import the routes
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config();
-
 const app = express();
 
+// Middleware
+app.use(cors());
 app.use(express.json());
-app.use('/images', express.static(path.join(__dirname, 'images'))); // Serve static images
 
-app.use(cors({
-  origin: process.env.CLIENT_URL
-}));
+// Static files for the client
+app.use(express.static(path.join(__dirname, 'client', 'public')));
 
-// Use the routes file for all `/ducks` routes
-app.use('/ducks', rubberDuckRoutes);
+// Catch-all route for the main HTML
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+});
 
 // Start server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });

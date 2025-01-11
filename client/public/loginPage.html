@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Sharp - Login</title>
+    <link rel="stylesheet" href="../src/styles/loginStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Setup</h1>
+        <form id="profile-form">
+            <div class="profile-picture" onclick="document.getElementById('file-input').click()">
+                <img id="preview" src="https://via.placeholder.com/100" alt="Profile Picture">
+                <input id="file-input" type="file" accept="image/*" name="profile_picture" onchange="previewImage(event)">
+            </div>
+            <button type="button" onclick="removeImage()">Remove Image</button>
+            <input type="text" placeholder="First Name" name="first_name" required>
+            <input type="text" placeholder="Last Name" name="last_name" required>
+            <input type="number" placeholder="Age" name="age" required>
+            <textarea name="bio" placeholder="Tell us about yourself..."></textarea>
+            <progress id="uploadProgress" value="0" max="100"></progress>
+            <button type="submit">Save Profile</button>
+            <button type="button" onclick="goToHome()">Back to HomePage</button>
+        </form>
+        <button onclick="guestLogin()" class="button">Continue as Guest</button>
+    </div>
+    <script src="../src/loginScript.js"></script>
+</body>
+</html>

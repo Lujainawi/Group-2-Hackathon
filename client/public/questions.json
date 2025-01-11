@@ -1,0 +1,29 @@
+[
+    {
+        "level": 1,
+        "botMessage": "Hi, I'm Lian. I saw you in our hobbies group. You seem really cool! Can we get to know each other better?",
+        "options": [
+            { "text": "Sure! Here's my number, you can text me.", "nextLevel": null },
+            { "text": "That's nice of you, but I don't share personal info with people I don't know well.", "nextLevel": null },
+            { "text": "I'd love to, but I need to check with my parents first.", "nextLevel": 2 }
+        ]
+    },
+    {
+        "level": 2,
+        "botMessage": "Of course, it's important to get your parents' permission. I'll respect that, but in the meantime, I'd love to talk about our hobbies in the group.",
+        "options": [
+            { "text": "Yes, that's a great idea. Let's talk about our hobbies.", "nextLevel": 3 },
+            { "text": "I'll update you after I check with my parents.", "nextLevel": null },
+            { "text": "We'd better wait until I get permission.", "nextLevel": null }
+        ]
+    },
+    {
+        "level": 3,
+        "botMessage": "Awesome! I love reading books and drawing. What hobbies do you have?",
+        "options": [
+            { "text": "I love drawing too! What do you like to draw most?", "nextLevel": null },
+            { "text": "I enjoy reading books but prefer to talk about general topics.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "That's nice, but I'm not sure I want to continue talking.", "nextLevel": null }
+        ]
+    }
+]
