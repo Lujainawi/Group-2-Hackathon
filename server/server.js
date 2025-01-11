@@ -5,9 +5,13 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const mongoose = require('mongoose');
 const app = express();
-
+// connect to MongoDB
+const dbURI = "mongodb+srv://group2:group123@malak.mnc9x.mongodb.net/StaySharpDB?retryWrites=true&w=majority&appName=Malak";
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) => app.listen(3000))
+    .catch((err) => console.log(err));
 // Middleware
 app.use(cors());
 app.use(express.json());
