@@ -8,23 +8,95 @@
 </head>
 <body>
     <div class="container">
-        <h1>Profile Setup</h1>
-        <form id="profile-form">
-            <div class="profile-picture" onclick="document.getElementById('file-input').click()">
-                <img id="preview" src="https://via.placeholder.com/100" alt="Profile Picture">
-                <input id="file-input" type="file" accept="image/*" name="profile_picture" onchange="previewImage(event)">
+        <h1>Welcome to Stay Sharp</h1>
+        <!-- Login / Signup Form -->
+        <form id="auth-form">
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" type="text" placeholder="Enter your username" name="username" required>
             </div>
-            <button type="button" onclick="removeImage()">Remove Image</button>
-            <input type="text" placeholder="First Name" name="first_name" required>
-            <input type="text" placeholder="Last Name" name="last_name" required>
-            <input type="number" placeholder="Age" name="age" required>
-            <textarea name="bio" placeholder="Tell us about yourself..."></textarea>
-            <progress id="uploadProgress" value="0" max="100"></progress>
-            <button type="submit">Save Profile</button>
-            <button type="button" onclick="goToHome()">Back to HomePage</button>
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password" placeholder="Enter your password" name="password" required>
+            </div>
+            <button type="button" onclick="handleLogin()">Login</button>
+            <button type="button" onclick="handleSignup()">Sign Up</button>
         </form>
+
+        <p id="message"></p>
+
         <button onclick="guestLogin()" class="button">Continue as Guest</button>
     </div>
-    <script src="../src/loginScript.js"></script>
+    
+    <script>
+        // Function for handling signup
+        async function handleSignup() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const result = await response.json();
+                const messageElement = document.getElementById('message');
+
+                if (response.ok) {
+                    messageElement.textContent = 'Signup successful! Please log in.';
+                    messageElement.style.color = 'green';
+                } else {
+                    messageElement.textContent = result.error || 'Signup failed!';
+                    messageElement.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error during signup:', error);
+                const messageElement = document.getElementById('message');
+                messageElement.textContent = 'An error occurred during signup.';
+                messageElement.style.color = 'red';
+            }
+        }
+
+        // Function for handling login
+        async function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const result = await response.json();
+                const messageElement = document.getElementById('message');
+
+                if (response.ok) {
+                    messageElement.textContent = 'Login successful!';
+                    messageElement.style.color = 'green';
+                    // Redirect to game page
+                    window.location.href = '/game';
+                } else {
+                    messageElement.textContent = result.error || 'Login failed!';
+                    messageElement.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                const messageElement = document.getElementById('message');
+                messageElement.textContent = 'An error occurred during login.';
+                messageElement.style.color = 'red';
+            }
+        }
+
+        // Guest login function
+        function guestLogin() {
+            alert('Logging in as a guest...');
+            // Redirect to game page
+            window.location.href = '/game';
+        }
+    </script>
 </body>
 </html>
