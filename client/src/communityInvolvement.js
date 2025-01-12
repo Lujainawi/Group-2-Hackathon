@@ -1,53 +1,59 @@
 let currentLevel = 1;
 
-
-
 async function loadScenario(level) {
-
-    const messages = document.getElementById("messages");
-    messages.innerHTML = "<p>Loading...</p>";
+    const messagesElement = document.getElementById("messages");
+    const optionsElement = document.getElementById("options");
 
     try {
-        const response = await fetch('../public/questions.json');
+        const response = await fetch('../public/CommunityInvolvementScenario.json'); 
         const questionsData = await response.json();
 
         const scenario = questionsData.find(q => q.level === level);
         if (!scenario) {
-            messages.innerHTML = "<p>Scenario not found!</p>";
+            const botMessage = document.createElement("div");
+            botMessage.classList.add("message", "bot");
+            botMessage.textContent = "Scenario not found!";
+            messagesElement.appendChild(botMessage);
             return;
         }
 
-        const messages = document.getElementById("messages");
-        const options = document.getElementById("options");
-
-        messages.innerHTML = ""; 
+        // הוספת הודעת בוט חדשה
         const botMessage = document.createElement("div");
         botMessage.classList.add("message", "bot");
         botMessage.textContent = scenario.botMessage;
-        messages.appendChild(botMessage);
+        messagesElement.appendChild(botMessage);
 
-        options.innerHTML = "";
+        // עדכון אפשרויות
+        optionsElement.innerHTML = "";
         scenario.options.forEach(option => {
             const button = document.createElement("button");
             button.textContent = option.text;
             button.onclick = () => handleResponse(option.nextLevel, option.text, option.alertId);
-            options.appendChild(button);
+            optionsElement.appendChild(button);
         });
 
-        messages.scrollTop = messages.scrollHeight;
+        // גלילה לתחתית
+        messagesElement.scrollTop = messagesElement.scrollHeight;
     } catch (error) {
-        messages.innerHTML = "<p>Failed to load scenario. Please try again later.</p>";
+        const botMessage = document.createElement("div");
+        botMessage.classList.add("message", "bot");
+        botMessage.textContent = "Failed to load scenario. Please try again later.";
+        messagesElement.appendChild(botMessage);
         console.error(error);
     }
 }
 
+
+
 function handleResponse(nextLevel, userText, alertId) {
     const messages = document.getElementById("messages");
-
+    
     const userMessage = document.createElement("div");
     userMessage.classList.add("message", "user");
     userMessage.textContent = userText;
     messages.appendChild(userMessage);
+
+    messages.scrollTop = messages.scrollHeight;
 
     if (alertId) {
         showAlert(alertId);

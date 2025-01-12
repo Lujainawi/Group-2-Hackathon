@@ -96,3 +96,5 @@ function guestLogin() {
 window.previewImage = previewImage;
 window.removeImage = removeImage;
 window.guestLogin = guestLogin;
+
+

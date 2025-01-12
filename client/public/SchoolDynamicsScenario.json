@@ -1,0 +1,105 @@
+[
+    {
+        "level": 1,
+        "botMessage": "Hi there! I noticed you’ve been doing really well in class lately. I think you have a lot of potential. Would you like some extra one-on-one tutoring after school?",
+        "options": [
+            { "text": "Sure, that sounds like a great opportunity to improve!", "nextLevel": 2 },
+            { "text": "Thanks for the offer, but I think I’m managing fine right now.", "nextLevel": 15 },
+            { "text": "I’d like to, but I’d want to check with my parents first.", "nextLevel": 20 }
+        ]
+    },
+    {
+        "level": 2,
+        "botMessage": "That’s great to hear! Let’s meet in my classroom after school tomorrow. By the way, it might be easier if we keep this just between us. What do you think?",
+        "options": [
+            { "text": "Alright, I understand. I won’t tell anyone.", "nextLevel": 3 },
+            { "text": "Why does it need to be a secret? That feels a little strange.", "nextLevel": 17 },
+            { "text": "I think I’d feel more comfortable if my parents or someone else knew about this.", "nextLevel": 18 }
+        ]
+    },
+    {
+        "level": 3,
+        "botMessage": "Thanks for trusting me! You’re really mature for your age. By the way, if you ever feel stressed or need someone to talk to, I’m always here for you.",
+        "options": [
+            { "text": "Thanks, I appreciate it. It’s nice to have someone to rely on.", "nextLevel": 4 },
+            { "text": "That’s kind of you, but I usually talk to my friends or family about these things.", "nextLevel": 12 },
+            { "text": "I’m not sure I’m comfortable with this conversation. I think I need to stop.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 4,
+        "botMessage": "Of course! By the way, you’re really special. I don’t say this to many students, but you stand out. Can I ask if you feel comfortable sharing more about your personal goals and dreams?",
+        "options": [
+            { "text": "Sure, I love talking about my goals! I’d like to be a scientist someday.", "nextLevel": 5 },
+            { "text": "I prefer to keep those things private, but thanks for asking.", "nextLevel": 14 },
+            { "text": "This is starting to feel too personal. I’d rather not continue this.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 5,
+        "botMessage": "That’s amazing! You have such big dreams, and I really believe in you. By the way, would you mind sharing your phone number? It might be easier for us to communicate if something comes up.",
+        "options": [
+            { "text": "Sure, here’s my number.", "nextLevel": null, "alertId": "alert1" },
+            { "text": "I don’t think that’s necessary. We can communicate through school channels.", "nextLevel": 13 },
+            { "text": "I don’t feel comfortable sharing my number. I think I need to stop this.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 12,
+        "botMessage": "That’s okay! If you ever change your mind, I’d love to hear about your thoughts and goals. By the way, it’s nice to have someone as dedicated as you in class.",
+        "options": [
+            { "text": "Thank you! I appreciate your support.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I’m starting to feel uncomfortable. I think we should stop here.", "nextLevel": null, "alertId": "alert3" },
+            { "text": "I’d like to talk about this in a group setting instead.", "nextLevel": null, "alertId": "alert2" }
+        ]
+    },
+    {
+        "level": 13,
+        "botMessage": "I understand. I just wanted to make it easier for us to communicate. If you ever change your mind, let me know.",
+        "options": [
+            { "text": "Thanks, but I’d prefer to keep things professional.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I don’t think I’ll change my mind. Let’s leave it at that.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 14,
+        "botMessage": "Of course, I respect that. It’s just that I see so much potential in you, and I want to help you achieve your dreams. Let me know if you need anything.",
+        "options": [
+            { "text": "Thank you! I’ll let you know if I need help.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d feel more comfortable keeping some distance for now.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 15,
+        "botMessage": "That’s okay! If you ever change your mind about extra help, let me know. I just want you to succeed.",
+        "options": [
+            { "text": "Thanks for understanding. I’ll let you know if I need help.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I’m starting to feel like this is unnecessary. I’d rather we keep things professional.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 17,
+        "botMessage": "Oh, it’s just that other students might feel jealous or misunderstand the situation. I don’t want anyone to feel bad about us working together.",
+        "options": [
+            { "text": "I guess that makes sense. I won’t tell anyone.", "nextLevel": null, "alertId": "alert1" },
+            { "text": "It still feels strange. I think I’d like to tell my parents about this.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d rather not continue this if it needs to be a secret.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 18,
+        "botMessage": "Of course, I completely understand. It’s great that you involve your parents. Let me know if they’re okay with us meeting.",
+        "options": [
+            { "text": "Thanks! I’ll ask them and get back to you.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d prefer not to continue even with their approval.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 20,
+        "botMessage": "That’s a smart choice. Let me know once you’ve spoken with them, and we can decide what’s best for you.",
+        "options": [
+            { "text": "Thanks for understanding. I’ll let you know what they say.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d rather wait and see if I even need extra help first.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    }
+]

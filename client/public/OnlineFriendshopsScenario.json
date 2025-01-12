@@ -1,0 +1,191 @@
+[
+    {
+        "level": 1,
+        "botMessage": "Hi, I'm Lian. I saw you in our hobbies group. You seem really cool! Can we get to know each other better?",
+        "options": [
+            { "text": "Sure! Here's my number, you can text me.", "nextLevel": 2 },
+            { "text": "That's nice of you, but I don't share personal info with people I don't know well.", "nextLevel": 17 },
+            { "text": "I'd love to, but I need to check with my parents first.", "nextLevel": 20 }
+        ]
+    },
+    {
+        "level": 2,
+        "botMessage": "Wow, thanks! I'll message you now. By the way, can you also tell me which school you go to? I want to know if we're close.",
+        "options": [
+            { "text": "Sure, I go to the main high school in town.", "nextLevel": 3 },
+            { "text": "I’d prefer not to share that information.", "nextLevel": 15 },
+            { "text": "I need to think about it; maybe we can talk about it later.", "nextLevel": 16 }
+        ]
+    },
+    {
+        "level": 3,
+        "botMessage": "Cool! I know someone who studies there too. Maybe I can introduce you to him? He's really nice, and I'm sure you'll get along.",
+        "options": [
+            { "text": "Sure, I’d love to meet him!", "nextLevel": 4 },
+            { "text": "Thanks, but I’m not really looking to meet new people right now.", "nextLevel": 13 },
+            { "text": "Why do you think I need to meet someone else? That’s a bit strange.", "nextLevel": 14 }
+        ]
+    },
+    {
+        "level": 4,
+        "botMessage": "Great! I'll send him your number, and he'll get in touch with you. He's really nice, don't worry.",
+        "options": [
+            { "text": "Alright, I'll wait for his message.", "nextLevel": 5 },
+            { "text": "I’d prefer to message him myself instead of him reaching out to me.", "nextLevel": 9 },
+            { "text": "I'm not sure I feel comfortable with this. Maybe let's leave it for now.", "nextLevel": null ,"alertId":"alert3" }
+        ]
+    },
+    {
+        "level": 5,
+        "botMessage":"Great! He'll probably text you soon. By the way, don't tell anyone about this, okay? It's more fun when it's our little secret." ,
+        "options": [
+            { "text": "Alright, I won't tell anyone.", "nextLevel": 6 },
+            { "text": "Why does it need to be a secret? That sounds strange to me.", "nextLevel": 7 },
+            { "text": "I'm starting to feel like this isn't right. Maybe we should stop talking.", "nextLevel": 8 }
+        ]
+    },
+    {
+        "level": 6,
+        "botMessage":"Thanks for understanding! You're really a special friend. By the way, do you have another picture of yourself? I want to show him what you look like." ,
+        "options": [
+            { "text": "Alright, I'll send you a picture.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "Why do you need another picture of me? This doesn't feel right.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "This is starting to feel wrong. Maybe we should end this here.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level": 7,
+        "botMessage":"It's not in a bad way, I just don’t want anyone to interfere or think the wrong things. You can trust me." ,
+        "options": [
+            { "text": "Alright, I guess that makes sense. I won’t tell anyone.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "This still sounds strange to me. I think I’d rather tell someone.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "I think if it’s a secret, then it’s not something I should be part of.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level": 8,
+        "botMessage": "I don’t understand why you feel that way. I’m just trying to be nice and help you. You can trust me." ,
+        "options": [
+            { "text": "I appreciate that, but I still don’t feel comfortable.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "If that’s really the case, then why does it feel like pressure?", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "I’m not sure I want to keep talking with you.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level": 9,
+        "botMessage":"I understand, but I’m not sure he’d feel comfortable receiving a direct message. It’s better if I send him your number; it’ll make things simpler." ,
+        "options": [
+            { "text": "If you think that’s better, then okay.", "nextLevel": 10 },
+            { "text": "I’d prefer to have control over who I talk to. If that doesn’t work, then let’s drop it.", "nextLevel": 11 },
+            { "text": "I’m starting to think this isn’t a good idea. Let’s leave it for now.", "nextLevel": 12 }
+        ]
+    },
+    {
+        "level": 10,
+        "botMessage":"Great! I’ll send him your number now. He’ll probably contact you soon. But don’t forget, this stays between us. It’s better if you don’t tell anyone else." ,
+        "options": [
+            { "text": "Alright, I won’t tell anyone.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "Why does this need to be a secret? I think that’s strange.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "I’ve changed my mind. I’d prefer if you stop and don’t send anything.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level": 11,
+        "botMessage":"I understand you, but it’s a shame you’d miss the chance to meet someone new. He’s really special. Maybe you’ll reconsider?" ,
+        "options": [
+            { "text": "Alright, I’ll think about it.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "I’d prefer not to go through with this. Thanks for trying to help.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "Why are you so insistent? This is starting to feel wrong.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level": 12,
+        "botMessage":"Of course, I don’t want you to do anything you’re unsure about. But if you decide to change your mind, I’m here." ,
+        "options": [
+            { "text": "Thanks for understanding. I’ll let you know if I change my mind.", "nextLevel": null ,"alertId": "alert1"},
+            { "text": "I don’t think I’ll change my mind. It’s better if we stop this here.", "nextLevel": null ,"alertId": "alert2"},
+            { "text": "I’m starting to think you don’t really have my best interests in mind. This doesn’t feel right to me.", "nextLevel": null ,"alertId": "alert3"}
+        ]
+    },
+    {
+        "level":13 ,
+        "botMessage":"No problem, I understand. I just thought it might help you feel more comfortable." ,
+        "options": [
+            { "text": "Thank you, I appreciate it, but I’d prefer to leave it as it is.", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "It still feels a bit strange to me. Why are you so insistent on introducing me to someone?", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "I need to end this conversation. I’m not comfortable with this.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":14 ,
+        "botMessage":"Oh, I didn’t mean for it to be weird. I’m just trying to be nice and help you meet new people." ,
+        "options": [
+            { "text": "I understand, but I don’t feel like this is right for me right now.", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "It still feels a bit uncomfortable. Maybe we should just talk in a group?", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "Thanks, but I think it’s better if we stop talking altogether.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":15 ,
+        "botMessage":"I understand, it’s important to keep things private. I’m just trying to get to know you better, I don’t mean any harm." ,
+        "options": [
+            { "text": "Thanks for understanding. Maybe we can talk about general topics instead.", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "I think we should stick to group conversations. That feels safer to me.", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "Why is it so important for you to know personal things about me?", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":16 ,
+        "botMessage":"Of course, take your time. I’m here if you feel comfortable sharing. In the meantime, maybe we can talk about hobbies or other topics?" ,
+        "options": [
+            { "text": "Sure, let’s talk about hobbies.", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "I think it’s better if we don’t talk much until I decide.", "nextLevel": null ,"alertId":"alert3"},
+            { "text": "Why are you pushing? This doesn’t feel right to me.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":17 ,
+        "botMessage": "I completely understand, it's important to maintain privacy. Maybe we can talk about things we enjoy doing instead?" ,
+        "options": [
+            { "text": "That's a great idea! I enjoy reading books. What about you?", "nextLevel": 18 },
+            { "text": "I'd rather not share too much about myself.", "nextLevel": null ,"alertId":"alert3"},
+            { "text": "I'm not sure I'm comfortable continuing this conversation.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":18 ,
+        "botMessage":"I love books too! Especially adventure books. Do you enjoy reading at night? I think it's the perfect time for reading. By the way, where do you live? It's always nice to meet people from nearby." ,
+        "options": [
+            { "text": "Yes, I love reading at night. I live in the central area. What about you?", "nextLevel": 19 },
+            { "text": "I'd rather not share where I live, but it's nice to know you enjoy reading at night too.", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "I don't feel comfortable sharing personal details. I think we should stop here.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":19 ,
+        "botMessage":"That's great! I also live near the central area. Maybe we could meet at a café or library sometime? That could be fun!" ,
+        "options": [
+            { "text": "That's a good idea! Which place do you like in the central area?", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "I'm not sure I feel comfortable meeting at this stage.", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "I don't think that's appropriate. It's better if we don't continue this conversation.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":20 ,
+        "botMessage":"Of course, it's important to get your parents' approval. I respect that, but in the meantime, I'd love to talk about our hobbies in the group." ,
+        "options": [
+            { "text": "Yes, that's a good idea. Let's talk about our hobbies.", "nextLevel": 21 },
+            { "text": "I'll update you after I ask my parents.", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "It's better to wait until I get approval before continuing the conversation.", "nextLevel": null ,"alertId":"alert3"}
+        ]
+    },
+    {
+        "level":21 ,
+        "botMessage": "I love drawing and reading books. What do you enjoy doing the most? By the way, can you share a picture of something you’ve drawn? I really enjoy seeing other people's work." ,
+        "options": [
+            { "text": "Sure! I have a drawing I really liked. I'll send you a picture.", "nextLevel": null ,"alertId":"alert1"},
+            { "text": "I don’t feel comfortable sharing pictures, but I love drawing nature.", "nextLevel": null ,"alertId":"alert2"},
+            { "text": "I think it’s better not to share personal things. It doesn’t feel right to me.", "nextLevel": null ,"alertId":"alert3" }
+        ]
+    }
+]

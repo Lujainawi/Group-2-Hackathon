@@ -1,0 +1,105 @@
+[
+    {
+        "level": 1,
+        "botMessage": "Hi there! I noticed you’ve been helping around the neighborhood a lot lately. I really admire your dedication! I was wondering if you’d like to help me out with a small project. It’ll be just our little thing.",
+        "options": [
+            { "text": "Sure! I’d love to help out.", "nextLevel": 2 },
+            { "text": "What kind of project is it? I’d need to know more first.", "nextLevel": 15 },
+            { "text": "I appreciate the offer, but I’m really busy right now.", "nextLevel": 20 }
+        ]
+    },
+    {
+        "level": 2,
+        "botMessage": "Great! It’s a simple task. I just need some help organizing a few things in my garage. By the way, feel free to grab any snacks or gifts you like from the pantry. It’s my way of saying thanks.",
+        "options": [
+            { "text": "Thanks, that’s really kind of you!", "nextLevel": 3 },
+            { "text": "That’s generous, but I don’t feel comfortable taking gifts for helping.", "nextLevel": 18 },
+            { "text": "I’ll need to let my parents know before coming over.", "nextLevel": 19 }
+        ]
+    },
+    {
+        "level": 3,
+        "botMessage": "You’re such a great neighbor! I can tell you’re really special. By the way, let’s keep this between us so we don’t make anyone else feel left out.",
+        "options": [
+            { "text": "Sure, I won’t tell anyone.", "nextLevel": 4 },
+            { "text": "Why does it need to be a secret? That feels strange.", "nextLevel": 16 },
+            { "text": "I’m not comfortable keeping secrets. I think I’ll pass on helping.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 4,
+        "botMessage": "Thanks for understanding! You’re really mature for your age. By the way, if you ever need help with anything, don’t hesitate to come to me. I’ll always be here for you.",
+        "options": [
+            { "text": "Thanks, I’ll keep that in mind!", "nextLevel": 5 },
+            { "text": "I appreciate it, but I usually talk to my family about these things.", "nextLevel": 13 },
+            { "text": "This is starting to feel uncomfortable. I think I need to stop.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 5,
+        "botMessage": "By the way, I was thinking of giving you a little reward for all your hard work. Would you like a gift card or some cash?",
+        "options": [
+            { "text": "Wow, thanks! I’ll take the gift card.", "nextLevel": null, "alertId": "alert1" },
+            { "text": "I don’t feel comfortable accepting money or gifts.", "nextLevel": 14 },
+            { "text": "This doesn’t feel right. I think we should stop talking.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 13,
+        "botMessage": "That’s okay! You’re such a kind person for helping out anyway. Let me know if there’s anything I can do for you in return.",
+        "options": [
+            { "text": "Thank you! I’ll let you know if I need help.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I’m starting to feel uncomfortable. I think we should stop here.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 14,
+        "botMessage": "I understand. I just want to show my appreciation for you. If you ever change your mind, let me know.",
+        "options": [
+            { "text": "Thanks, but I think I’ll stick to helping without gifts.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think it’s better if we don’t continue this.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 15,
+        "botMessage": "It’s nothing too serious, just organizing and maybe helping me set up some decorations. I thought of you because you’re so responsible.",
+        "options": [
+            { "text": "That sounds manageable. I’ll help out.", "nextLevel": 2 },
+            { "text": "I’ll need to ask my parents before deciding.", "nextLevel": 19 },
+            { "text": "I think I’ll pass for now. Thanks for considering me.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 16,
+        "botMessage": "Oh, it’s just to avoid unnecessary gossip. You know how neighbors can be! It’s better if it’s just our little project.",
+        "options": [
+            { "text": "I guess that makes sense. I won’t tell anyone.", "nextLevel": 4 },
+            { "text": "I still think I’d like to discuss this with my parents.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "If it has to be a secret, I don’t think I want to be involved.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 18,
+        "botMessage": "I understand, and that’s really kind of you. If you ever feel like accepting a small gift, just let me know.",
+        "options": [
+            { "text": "Thank you! I’ll let you know if I change my mind.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d prefer not to continue this arrangement.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 19,
+        "botMessage": "That’s a good idea! I respect your decision to involve your parents. Let me know once you’ve spoken with them.",
+        "options": [
+            { "text": "Thanks, I’ll let you know what they say.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I think I’d rather not move forward with this at all.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    },
+    {
+        "level": 20,
+        "botMessage": "Of course, I completely understand. Let me know if you change your mind about helping out.",
+        "options": [
+            { "text": "Thanks! I’ll think about it and let you know.", "nextLevel": null, "alertId": "alert2" },
+            { "text": "I don’t think I’ll change my mind. Thanks for understanding.", "nextLevel": null, "alertId": "alert3" }
+        ]
+    }
+]
