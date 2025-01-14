@@ -5,7 +5,7 @@ async function loadScenario(level) {
     const optionsElement = document.getElementById("options");
 
     try {
-        const response = await fetch('../public/OnlineFriendshopsScenario.json'); 
+        const response = await fetch('/OnlineFriendshipsScenario.json'); 
         const questionsData = await response.json();
 
         const scenario = questionsData.find(q => q.level === level);

@@ -1,6 +1,12 @@
-window.navigateToScenario = function(page) {
-    window.location.href = page;
+// window.navigateToScenario = function(page) {
+//     window.location.href = page;
+// };
+
+window.navigateToScenario = function (scenarioPage, scenarioFileName) {
+    localStorage.setItem('scenarioFileName', scenarioFileName); // שמירת שם הסצנה
+    window.location.href = scenarioPage;
 };
+
 
 window.onload = function () {
     const canvas = document.getElementById("backgroundCanvas");
