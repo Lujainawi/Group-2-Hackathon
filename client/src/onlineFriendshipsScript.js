@@ -5,9 +5,10 @@ async function loadScenario(level) {
     const optionsElement = document.getElementById("options");
 
     try {
-        const response = await fetch('/OnlineFriendshipsScenario.json'); 
+        const response = await fetch(`/OnlineFriendshipsScenario.json`);
         const questionsData = await response.json();
 
+        // Find the relevant level
         const scenario = questionsData.find(q => q.level === level);
         if (!scenario) {
             const botMessage = document.createElement("div");
@@ -17,13 +18,13 @@ async function loadScenario(level) {
             return;
         }
 
-        // הוספת הודעת בוט חדשה
+        // Display the bot's message
         const botMessage = document.createElement("div");
         botMessage.classList.add("message", "bot");
         botMessage.textContent = scenario.botMessage;
         messagesElement.appendChild(botMessage);
 
-        // עדכון אפשרויות
+        // Display the options
         optionsElement.innerHTML = "";
         scenario.options.forEach(option => {
             const button = document.createElement("button");
@@ -32,16 +33,17 @@ async function loadScenario(level) {
             optionsElement.appendChild(button);
         });
 
-        // גלילה לתחתית
+        // Scroll to the bottom of the messages
         messagesElement.scrollTop = messagesElement.scrollHeight;
     } catch (error) {
+        console.error('Error loading scenario:', error);
         const botMessage = document.createElement("div");
         botMessage.classList.add("message", "bot");
-        botMessage.textContent = "Failed to load scenario. Please try again later.";
+        botMessage.textContent = "Failed to load the scenario. Please try again later.";
         messagesElement.appendChild(botMessage);
-        console.error(error);
     }
 }
+
 
 
 
@@ -124,5 +126,6 @@ const alerts = {
         `
     }
 };
+
 
 loadScenario(currentLevel);

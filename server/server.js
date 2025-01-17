@@ -1,61 +1,49 @@
 import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import cors from 'cors';
 import mongoose from 'mongoose';
-import User from './models/user.js';
+import { fileURLToPath } from 'url';
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB
-const dbURI =  "mongodb+srv://group2:group123@malak.mnc9x.mongodb.net/StaySharpDB?retryWrites=true&w=majority"
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error(err));
+// Fix __dirname and __filename in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('client/public'));
 
+// Static files
+app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '../client/public')));
 
-
-
-// POST route for signup
-app.post('/api/signup', async (req, res) => {
-    const { username, password } = req.body;
-
-    try {
-        const existingUser = await User.findOne({ username });
-        if (existingUser) {
-            return res.status(400).json({ error: 'Username already exists!' });
-        }
-
-        const newUser = new User({ username, password });
-        await newUser.save();
-        console.log('User registered successfully!');
-        res.status(201).json({ message: 'User registered successfully!' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'An error occurred during signup.' });
-    }
+// Serve the OnlineFriendshopsScenario.json file
+app.get('/OnlineFriendshipsScenario.json', (req, res) => {
+    const filePath = path.join(__dirname, '../OnlineFriendshipsScenario.json');
+    res.sendFile(filePath);
 });
 
-// POST route for login
-app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
-
-    try {
-        const user = await User.findOne({ username });
-        if (!user || user.password !== password) {
-            return res.status(401).json({ error: 'Invalid username or password.' });
-        }
-        console.log('User registered successfully!');
-        res.status(200).json({ message: 'Login successful!' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'An error occurred during login.' });
-    }
+app.get('/CommunityInvolvementScenario.json', (req, res) => {
+    const filePath = path.join(__dirname, '../CommunityInvolvementScenario.json');
+    res.sendFile(filePath);
 });
 
-// Start server
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+app.get('/SchoolDynamicsScenario.json', (req, res) => {
+    const filePath = path.join(__dirname, '../SchoolDynamicsScenario.json');
+    res.sendFile(filePath);
+});
+
+// Handle default route (for single-page apps or fallback)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

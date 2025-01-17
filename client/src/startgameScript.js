@@ -1,10 +1,6 @@
-// window.navigateToScenario = function(page) {
-//     window.location.href = page;
-// };
-
 window.navigateToScenario = function (scenarioPage, scenarioFileName) {
-    localStorage.setItem('scenarioFileName', scenarioFileName); // שמירת שם הסצנה
-    window.location.href = scenarioPage;
+    localStorage.setItem('scenarioFileName', scenarioFileName); // Save scenario file name
+    window.location.href = scenarioPage; // Navigate to the scenario page
 };
 
 
