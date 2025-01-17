@@ -5,7 +5,7 @@ async function loadScenario(level) {
     const optionsElement = document.getElementById("options");
 
     try {
-        const response = await fetch(`/CommunityInvolvementScenario.json`);
+        const response = await fetch(`http://localhost:5000/CommunityInvolvementScenario.json`);
         const questionsData = await response.json();
 
         // Find the relevant level

@@ -12,6 +12,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    lastVisit: { 
+        type: Date,
+         default: Date.now
+         },
+    status: {
+         type: String,
+          default: 'active'
+         },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

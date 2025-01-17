@@ -4,9 +4,16 @@ import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
+const dbURI =  "mongodb+srv://group2:group123@malak.mnc9x.mongodb.net/StaySharpDB?retryWrites=true&w=majority"
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error(err));
 
 // Fix __dirname and __filename in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(express.static(path.join(__dirname, '../client/public')));
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '../client/src')));
+
+app.get('/test', (req, res) => {
+    res.json({ message: 'Server is running!' });
+});
 
 // Serve the OnlineFriendshopsScenario.json file
 app.get('/OnlineFriendshipsScenario.json', (req, res) => {
@@ -38,10 +49,15 @@ app.get('/SchoolDynamicsScenario.json', (req, res) => {
     res.sendFile(filePath);
 });
 
+
 // Handle default route (for single-page apps or fallback)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+
+// Mount authRoutes
+app.use('/api', authRoutes);
 
 // Start the server
 app.listen(PORT, () => {
