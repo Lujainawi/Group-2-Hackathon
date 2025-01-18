@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Sharp - Login</title>
+    <link rel="stylesheet" href="../src/styles/loginStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Stay Sharp</h1>
+        <!-- Login / Signup Form -->
+        <form id="auth-form">
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" type="text" placeholder="Enter your username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password" placeholder="Enter your password" name="password" required>
+            </div>
+            <button type="button" onclick="handleSignup()">Sign Up</button>
+        </form>
+
+        <p id="message"></p>
+
+        <!-- <button onclick="guestLogin()" class="button">Continue as Guest</button> -->
+        <button class="button" onclick="window.location.href='homePage.html'">Back to HomePage</button>
+    </div>
+    
+    <script type="module">
+        import axiosInstance from '../src/services/api.js';
+
+        async function handleSignup() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await axiosInstance.post('/signup', { username, password });
+                const messageElement = document.getElementById('message');
+
+                if (response.status === 201) {
+                    messageElement.textContent = 'Signup successful! Please log in.';
+                    messageElement.style.color = 'green';
+                } else {
+                    messageElement.textContent = response.data?.error || 'Signup failed!';
+                    messageElement.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error during signup:', error);
+                const messageElement = document.getElementById('message');
+                messageElement.textContent = error.response?.data?.error || 'An error occurred during signup.';
+                messageElement.style.color = 'red';
+            }
+        }
+        window.handleSignup = handleSignup;
+
+    </script>
+</body>
+</html>

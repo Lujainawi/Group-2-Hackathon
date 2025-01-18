@@ -2,8 +2,23 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt'; // For hashing passwords
 import User from '../models/user.js'; // Make sure the path to your user model is correct
+import jwt from 'jsonwebtoken';
+import { authenticateToken } from '../middlewares/authMiddleware.js';
 
+
+
+const SECRET_KEY = process.env.SECRET_KEY;
+console.log('Loaded ENV:', process.env.SECRET_KEY); // This should print your SECRET_KEY
 const router = express.Router();
+
+router.get('/game', authenticateToken, (req, res) => {
+    const userData = {
+        id: req.user.id,
+        username: req.user.username,
+    };
+
+    res.status(200).json({ message: 'Welcome to the game!', user: userData });
+});
 
 // Signup route
 router.post('/signup', async (req, res) => {
@@ -31,45 +46,33 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-
-// Login route
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
     const { username, password } = req.body;
 
     try {
         // Check if the user exists
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ error: 'Invalid username or password.' });
+            return res.status(400).json({ error: "Invalid username or password." });
         }
 
-        // Update the last visit time
-        user.lastVisit = Date.now();
-        await user.save();
-
-        // Compare the password with the hashed password in the database
+        // Verify the password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ error: 'Invalid username or password.' });
+            return res.status(400).json({ error: "Invalid username or password." });
         }
 
-        // Respond with a success message
-        res.status(200).json({ message: 'Login successful!' });
+        // Generate a JWT
+        const SECRET_KEY = process.env.SECRET_KEY;
+        const token = jwt.sign({ id: user._id, username: user.username }, SECRET_KEY, { expiresIn: "2h" });
+
+        // Respond with the token
+        res.status(200).json({ message: "Login successful!", token });
     } catch (error) {
-        console.error('Error during login:', error);
-        res.status(500).json({ error: 'Failed to log in.' });
+        console.error("Error during login:", error);
+        res.status(500).json({ error: "An error occurred during login." });
     }
 });
-
-
-router.get('/test', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json(users);
-    } catch (error) {
-        res.status(500).json({ error: 'Database error' });
-    }
-});
-
 
 export default router;
+

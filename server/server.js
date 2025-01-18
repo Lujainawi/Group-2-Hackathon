@@ -1,10 +1,16 @@
 import express from 'express';
-import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+dotenv.config(); // This should be at the very top of your file
 import authRoutes from './routes/authRoutes.js';
+
+
+
+
+console.log('Loaded ENV: from server', process.env.SECRET_KEY); // This should print your SECRET_KEY
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,6 +34,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(express.static(path.join(__dirname, '../client/public')));
 app.use(express.static(path.join(__dirname, '../client/src')));
+
+// // Serve static files from the "client" directory
+// app.use(express.static(path.join(__dirname, 'client')));
 
 app.get('/test', (req, res) => {
     res.json({ message: 'Server is running!' });
@@ -54,7 +63,6 @@ app.get('/SchoolDynamicsScenario.json', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
-
 
 // Mount authRoutes
 app.use('/api', authRoutes);
