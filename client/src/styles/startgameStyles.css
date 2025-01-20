@@ -15,7 +15,18 @@ h1 {
     color: #d14784;
     margin-bottom: 20px;
 }
-
+.scenario-description {
+    font-size: 3 rem; /* גודל  */
+    color: #d14784;
+    font-family: 'Georgia', serif; /* גופן עם סגנון קלאסי */
+    font-weight: bold; /* מודגש */
+    font-style: italic; /* נטוי */
+    margin-bottom: 35px;
+    text-align: center;
+    max-width: 600px;
+    line-height: 2;
+    text-shadow: 2px 2px 4px rgba(69, 67, 67, 0.3); /* צל לטקסט */
+}
 canvas {
     position: fixed;
     top: 0;
